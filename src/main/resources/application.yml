@@ -1,0 +1,33 @@
+server:
+  port: 3000
+welcome:
+  message: Health check works
+spring:
+  profiles:
+    active: prod
+---
+spring:
+  profiles: dev
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    password: Sid12
+    url: jdbc:mysql://localhost:3306/dcbapp
+    username: root
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+---
+spring:
+  profiles: prod
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    password: Sid12
+    url: jdbc:mysql://localhost:3306/dcbapp-prod
+    username: root
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
